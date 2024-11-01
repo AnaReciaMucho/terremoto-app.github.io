@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TERREMOTO_APP</title>
+    <link rel="stylesheet" href="css/landing.css">
+</head>
+<body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/examples/js/loaders/GLTFLoader.min.js"></script>
+
+    <script>
+        let scene, camera, renderer;
+
+        function init() {
+
+            scene = new THREE.Scene();
+            scene.background = new THREE.Color(0xdddddd);
+
+            camera = new THREE.PerspectiveCamera(40,window.innerWidth/window.innerHeight,1/5000);
+            camera.rotation.y = 45/180*Math.PI;
+            camera.position.x = 800;
+            camera.position.y = 100;
+            camera.position.z = 1000;
+
+            hlight = new THRE.AmbientLight (0x404040,100);
+            scene.add(hlight);
+
+            renderer = new THREE.WebGLRenderer({antialias:true});
+            renderer.setSize(window.innerWidth,window.innerHeight);
+            document.body.appendChild(renderer.domElement);
+
+            let loader = new THREE.GLTFLoader();
+            loader.load('mapa.gltf', function(gltf){
+                map = gltf.scene.children[0];
+                map.scale.set(0.5,0.5,0.5);
+                scene.add(gltf.scene);
+                renderer.render(scene,camera);
+            });
+        }
+
+        init();
+    </script>
+    <div class="background-container">
+        <!-- Logo centrado -->
+        <div class="logo-container">
+            <img src="img/LOGO.gif" alt="Logo" class="logo">
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+    <script>
+        setTimeout(function() {
+    window.location.href = 'home02.html'; // Cambia 'home.html' por la URL de tu página principal
+}, 4000);
+    </script>
+</body>
+</html>

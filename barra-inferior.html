@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .menu {
+            position: fixed;
+            display:block;
+            flex-direction: column;
+            bottom: 40px;
+            left: 50%; /* Coloca el contenido en la mitad horizontal */
+            transform: translate(-50%, -50%); 
+            gap: 10px; 
+            font-size: 14px;
+        }
+
+        .menu button {
+            background: transparent;
+            border: none;
+            color: rgb(0, 0, 0);
+            cursor: pointer;
+            margin: 0 1px;
+            font-size: 16px;
+        }
+
+        .menu button:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="menu">
+        <button onclick="changeNote(0)"> ( About )
+        </button>
+        <button onclick="changeNote(1)">( Editorial )</button>
+        <button onclick="changeNote(2)">( Proyectos )</button>
+        <button onclick="changeNote(2)">( Archivo )</button>
+        <button onclick="changeNote(2)">( Travesías )</button>
+
+
+    </div>
+    
+</body>
+</html>

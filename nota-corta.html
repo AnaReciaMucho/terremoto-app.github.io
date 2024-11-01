@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Convocatoria Abierta</title>
+    <style>
+        /* Configuración general */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background-color: #ff0000;
+        }
+
+        .container {
+            color: white;
+            display: grid;
+            grid-template-columns: 1fr 1fr; /* Dos columnas iguales */
+            width: 100%;
+            max-width: 95%;
+            height: 70vh;
+            gap: 5px;
+        }
+
+        /* Sección izquierda */
+        .left-section {
+            background-color: #FF0000; /* Rojo */
+            color: white;
+            padding: 5px;
+            display: grid;
+            grid-template-rows: auto 1fr auto; /* Divide en 3 filas */
+        }
+
+        /* Estilo para la fecha y el título */
+        .left-section .date {
+            font-size: 14px;
+            align-self: start; /* Alinea la fecha en la parte superior */
+            text-align: right; /* Alineación a bandera izquierda */
+        }
+
+        .left-section .title {
+            
+            font-size: 24px;
+            font-weight: bold;
+            align-self: end; /* Alinea el título en la parte inferior */
+        }
+
+      
+        /* Imagen en la sección derecha */
+        .right-section {
+            background: url('img/07.jpg') center/cover no-repeat; /* Añade la imagen como fondo */
+        }
+    </style>
+</head>
+<body>
+    <div id="header"></div>
+    <div id="barra-inferior"></div>
+
+
+
+
+    <div class="container">
+        <!-- Sección Izquierda -->
+        <div class="left-section">
+            <div class="date">
+                16 / 09 / 2024<br>
+                Tiempo de lectura: 2 min
+            </div>
+            <!-- La fila del medio es un espacio flexible para alinear bien la fecha y el título con la imagen -->
+            <div></div> <!-- Espaciador flexible -->
+            <div class="title">
+                ¡Convocatoria abierta!<br>
+                Foundwork Artist Prize 2024
+            </div>
+            <div class="space"></div>
+         
+        </div>
+        
+        
+        <!-- Sección Derecha con Imagen de Fondo -->
+        <div class="right-section">
+            <!-- Imagen completa sin texto adicional -->
+        </div>
+    </div>
+</body>
+<script>
+ fetch('header.html')
+            .then(response => response.text())
+            .then(data => document.getElementById('header').innerHTML = data);
+
+            fetch('barra-inferior.html')
+            .then(response => response.text())
+            .then(data => document.getElementById('barra-inferior').innerHTML = data);
+
+
+
+</script>
+<script>
+    window.addEventListener('scroll', function() {
+    const div = document.querySelector('.title');
+    const scrollY = window.scrollY;
+
+    // Cambia el tamaño del div según la posición de scroll
+    const newSize = Math.max(24 - scrollY / 20, 12); // Tamaño mínimo de 12px
+    div.style.fontSize = newSize + 'px';});
+</script>
+</html>
